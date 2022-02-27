@@ -118,6 +118,25 @@ function stringHashing() {
   }
 }
 
+function epochtoDate(val){
+  var myDate = new Date(val);
+  return (myDate.toGMTString());
+ 
+}
+  
+function DatetoEpoch(){
+  let year= readLineSync.question("\nEnter the value of year: ");
+  let month= readLineSync.question("\nEnter the value of month: ");
+  let day= readLineSync.question("\nEnter the value of day: ");
+  let hours= readLineSync.question("\nEnter the value of hours: ");
+  let min= readLineSync.question("\nEnter the value of min: ");
+  let seconds= readLineSync.question("\nEnter the value of seconds: ");
+
+  var date = new Date(year,month,day,hours,min,seconds);
+  var timestamp = Math.floor(date.getTime()/1000.0);
+  console.log(timestamp);
+}
+
 function epochConverter() {
   console.log("\nDo you want to:\n 1. Epoch to Human Date\n 2. Human date to Epoch");
   let input4 = readLineSync.question();
@@ -131,7 +150,7 @@ function epochConverter() {
       break;
       
     case "2":
-      console.log(DatetoEpoch());
+      DatetoEpoch();
       break;
       
     default:
@@ -223,33 +242,4 @@ function unitConverter(){
     default:
       console.log("Please choose the correct option.\n")
   }
-}
-
-
-function epochtoDate(val){
-  var myDate = new Date(val);
-  return (myDate.toGMTString());
- 
-}
-  
-function DatetoEpoch(){
-  let year= readLineSync.question("\nEnter the value of year: ");
-  let month= readLineSync.question("\nEnter the value of month: ");
-  let day= readLineSync.question("\nEnter the value of day: ");
-  let hours= readLineSync.question("\nEnter the value of hours: ");
-  let min= readLineSync.question("\nEnter the value of min: ");
-  let seconds= readLineSync.question("\nEnter the value of seconds: ");
-  // let millisec= readLineSync.question("\nEnter the value of milliseconds: ");
-
-  year=parseInt(year);
-  month=parseInt(month);
-  day=parseInt(day);
-  hours=parseInt(hours);
-  min=parseInt(min);
-  seconds=parseInt(seconds);
-
-  var myDate=new Date(year,month,day,hours,min,seconds);
-
-  var myEpoch=myDate.getTime()/1000;
-  console.log(myEpoch);
 }
