@@ -132,8 +132,8 @@ function DatetoEpoch(){
   let min= readLineSync.question("\nEnter the value of min: ");
   let seconds= readLineSync.question("\nEnter the value of seconds: ");
 
-  var date = new Date(year,month,day,hours,min,seconds);
-  var timestamp = Math.floor(date.getTime()/1000.0);
+  let date = new Date(year,month-1,day,hours,min,seconds);
+  let timestamp = Math.floor(date.getTime()/1000.0);
   console.log(timestamp);
 }
 
